@@ -1,0 +1,8 @@
+{
+  "name": "imagnate-openai-agent",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Private, authenticated relay for iMagnate price-recognition requests.",
+  "engines": { "node": ">=20 <23" },
+  "scripts": { "start": "node server.cjs", "test": "node --test test/*.test.cjs" }
+}

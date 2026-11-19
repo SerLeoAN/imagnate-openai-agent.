@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: imagnate-openai-agent
+    runtime: node
+    region: frankfurt
+    # This relay has no runtime dependencies.  Avoid npm ci: there is
+    # intentionally no package lock to install from.
+    buildCommand: node --check server.cjs
+    startCommand: node server.cjs
+    healthCheckPath: /health
+    autoDeployTrigger: 'off'
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+      - key: OPENAI_MODEL
+        value: gpt-6-luna
+      - key: AI_AGENT_REQUESTS_PER_MINUTE
+        value: '20'
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: AI_AGENT_TOKEN
+        sync: false
